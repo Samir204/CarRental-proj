@@ -1,7 +1,7 @@
-package Domain;
+package Domain.Carro;
 import java.util.*;
 
-public class coreIdentity {
+public class car {
     private String brand;
     private String name;
     private String vinNum;
@@ -14,7 +14,7 @@ public class coreIdentity {
     private int year; // year of manufacture
     private String country; // country of registration
 
-    private coreIdentity(){
+    public car(){
         this.brand="";
         this.name="";
         this.vinNum="";
@@ -27,7 +27,7 @@ public class coreIdentity {
         this.year=0;
         this.country="";
     }
-    private coreIdentity(String brand, String name, String vinNum, String platNum,
+    public car(String brand, String name, String vinNum, String platNum,
                         String engin, Double mileage, int topSpeed, Double combustionRat,
                         String trim, int year, String country){
         this.brand=brand;
@@ -45,7 +45,7 @@ public class coreIdentity {
 
     // other | getter/ setters |  @Override -> toString && clone && ++
     
-    public coreIdentity(coreIdentity other){
+    public car(car other){
         this.brand=other.brand;
         this.name=other.name;
         this.vinNum=other.vinNum;
@@ -86,7 +86,7 @@ public class coreIdentity {
 
 
     @Override
-    public coreIdentity clone(){ return new coreIdentity(this); }
+    public car clone(){ return new car(this); }
 
     @Override
     public String toString(){
