@@ -1,12 +1,13 @@
 package Domain.Carro;
 import java.util.*;
 
-public class car {
+public abstract class car {
     private String brand;
-    private String name;
+    private String model;
     private String vinNum;
     private String platNum;
     private String engin;
+    private int numOfEngins;
     private Double mileage;
     private int topSpeed;
     private Double combustionRat;
@@ -16,10 +17,11 @@ public class car {
 
     public car(){
         this.brand="";
-        this.name="";
+        this.model="";
         this.vinNum="";
         this.platNum="";
         this.engin="";
+        this.numOfEngins=0;
         this.mileage=0.0;
         this.topSpeed=0;
         this.combustionRat=0.0;
@@ -27,30 +29,26 @@ public class car {
         this.year=0;
         this.country="";
     }
-    public car(String brand, String name, String vinNum, String platNum,
-                        String engin, Double mileage, int topSpeed, Double combustionRat,
-                        String trim, int year, String country){
+    public car(String brand, String model, String vinNum, int year,
+                        String engin, Double mileage, int topSpeed){
         this.brand=brand;
-        this.name=name; 
+        this.model=model; 
         this.vinNum=vinNum;
-        this.platNum=platNum;
         this.engin=engin;
         this.mileage=mileage;
         this.topSpeed=topSpeed;
-        this.combustionRat=combustionRat;
-        this.trim=trim;
         this.year=year;
-        this.country=country;
     }
 
     // other | getter/ setters |  @Override -> toString && clone && ++
     
     public car(car other){
         this.brand=other.brand;
-        this.name=other.name;
+        this.model=other.model;
         this.vinNum=other.vinNum;
         this.platNum=other.platNum;
         this.engin=other.engin;
+        this.numOfEngins=other.numOfEngins;
         this.mileage=other.mileage;
         this.topSpeed=other.topSpeed;
         this.combustionRat=other.combustionRat;
@@ -61,10 +59,11 @@ public class car {
 
     // getters
     public String getBrand(){ return this.brand; }
-    public String getName(){ return this.name; }
+    public String getModel(){ return this.model; }
     public String getVIN(){ return this.vinNum; }
     public String getPlat(){ return this.platNum; }
     public String getEngin(){ return this.engin; }
+    public int getNumOfEngins(){ return this.numOfEngins; }
     public Double getMileage(){ return this.mileage; }
     public int getTopSpeed(){ return this.topSpeed; }
     public Double getCombustionRat(){ return this.combustionRat; }
@@ -74,24 +73,24 @@ public class car {
 
     // setters
     public void setBrand(String brand){ this.brand=brand; }
-    public void setName(String Name){this.name=name; }
+    public void setModel(String model){this.model=model; }
     public void setVIN(String vin){ this.vinNum=vin; }
     public void setPaleNum(String platNum){ this.platNum=platNum; }
     public void setEnginType(String engin){ this.engin=engin; }
+    public void setNumOfEngins(int num){ this.numOfEngins=num; }
     public void setTopSpeed(int topSpeed){ this.topSpeed=topSpeed; }
     public void SetConbustionRat(Double rat){ this.combustionRat=rat; }
     public void setTrim(String trip){ this.trim=trim; }
     public void setYearOfManufacture(int year){this.year=year; }
     public void setCountryOfRegistration(String country){this.country=country; }
 
-
-    @Override
-    public car clone(){ return new car(this); }
+    
+    public abstract double costPerKM();
 
     @Override
     public String toString(){
         return "Car INFO: Brand: " + this.brand 
-                 +", Name: " + this.name
+                 +", Name: " + this.model
                  +", VIN number: " + this.vinNum
                  +", plat number: " + this.platNum
                  +",  engin type: " + this.engin

@@ -1,6 +1,8 @@
 package Domain.Carro;
 
-public class enginAndPerformance extends car{
+
+// stll deciding to do with this file
+public class enginAndPerformance{
     private String enginDisplacement;
     private int horsePower;
     private int torque;
@@ -11,15 +13,15 @@ public class enginAndPerformance extends car{
 
     // other | getter/ setters |  @Override -> toString && clone && ++
 
-    private enginAndPerformance(){
-        this.enginDisplacement="";
-        this.horsePower=0;
-        this.torque=0;
-        this.fuelType="";
-        this.acceleration=0;
-        this.transmission="";
-        this.drivetrain="";
-    }
+    // private enginAndPerformance(){
+    //     this.enginDisplacement="";
+    //     this.horsePower=0;
+    //     this.torque=0;
+    //     this.fuelType="";
+    //     this.acceleration=0;
+    //     this.transmission="";
+    //     this.drivetrain="";
+    // }
 
     private enginAndPerformance(String enginDisplacement, int horsePower, int torque,
                                 String fuelType, int acceleration, String transmission,
